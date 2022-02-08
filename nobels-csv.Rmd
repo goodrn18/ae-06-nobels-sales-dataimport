@@ -17,15 +17,16 @@ library(readxl)
 Let's first load the data:
 
 ```{r label-me1, message=FALSE}
-nobel <- read_csv("data/nobel.csv") 
+nobel <- read_csv("C:/Users/rgood28/Documents/Data Sci Labs/ae-06-nobels-sales-dataimport/nobel.csv") 
 ```
 
 Then let's split the data into two:
 
-```{r label-me2, eval=FALSE}
+```{r label-me2, eval=TRUE}
 # stem laureates
+library(dplyr)
 nobel_stem <- nobel %>%
-  filter(___)
+  filter(category %in% c('Physics', 'Medicine', 'Chemistry', 'Economics')) 
 ```
 
 ```{r nonstem, eval=TRUE}
