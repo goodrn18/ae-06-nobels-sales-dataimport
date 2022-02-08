@@ -31,14 +31,18 @@ nobel_stem <- nobel %>%
 
 ```{r nonstem, eval=TRUE}
 # non-stem laureates
+`%notin%` <- Negate(`%in%`)
 nobel_nonstem <- nobel %>%
-  filter()
+  filter(category %notin% c('Physics', 'Medicine', 'Chemistry', 'Economics'))
 ```
 
 And finally write out the data:
 
-```{r label-me3}
+```{r write_outs}
 # add code for writing out the two data frames here
+write_csv(nobel_stem, file = "C:/Users/rgood28/Documents/Data Sci Labs/ae-06-nobels-sales-dataimport/nobel-stem.csv")
+
+write_csv(nobel_nonstem, file = "C:/Users/rgood28/Documents/Data Sci Labs/ae-06-nobels-sales-dataimport/nobel-nonstem.csv")
 ```
 
 ## References {#references}

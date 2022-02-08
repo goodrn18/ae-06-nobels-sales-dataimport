@@ -259,10 +259,14 @@ library(dplyr)
 nobel_stem &lt;- nobel %&gt;%
   filter(category %in% c(&#39;Physics&#39;, &#39;Medicine&#39;, &#39;Chemistry&#39;, &#39;Economics&#39;)) </code></pre>
 <pre class="r"><code># non-stem laureates
+`%notin%` &lt;- Negate(`%in%`)
 nobel_nonstem &lt;- nobel %&gt;%
-  filter()</code></pre>
+  filter(category %notin% c(&#39;Physics&#39;, &#39;Medicine&#39;, &#39;Chemistry&#39;, &#39;Economics&#39;))</code></pre>
 <p>And finally write out the data:</p>
-<pre class="r"><code># add code for writing out the two data frames here</code></pre>
+<pre class="r"><code># add code for writing out the two data frames here
+write_csv(nobel_stem, file = &quot;C:/Users/rgood28/Documents/Data Sci Labs/ae-06-nobels-sales-dataimport/nobel-stem.csv&quot;)
+
+write_csv(nobel_nonstem, file = &quot;C:/Users/rgood28/Documents/Data Sci Labs/ae-06-nobels-sales-dataimport/nobel-nonstem.csv&quot;)</code></pre>
 <div id="references" class="section level2">
 <h2>References</h2>
 <ol style="list-style-type: decimal">
