@@ -24,15 +24,14 @@ fav_food
 
 * Clean up `NA`s and make sure you're happy with variable types.
 
-```{r label-me2, eval=TRUE}
-library(janitor)
-fave_food_cleaned_names <- fav_food %>% 
-  janitor::clean_names()
-fav_food_cleaned_names <- read_excel("C:/Users/rgood28/documents/Data Sci Labs/ae-06-nobels-sales-dataimport/favourite-food.xlsx",
-                       na = c("NA", "99999", "N/A"))
+```{r clean_names, eval=TRUE}
+fave_food_cleaned_names <- 
+ read_excel("C:/Users/rgood28/documents/Data Sci Labs/ae-06-nobels-sales-dataimport/favourite-food.xlsx",
+                       na = c("NA", "99999", "N/A"),
+            col_names = c("student_id", "full_name", "favourite_food", "meal_plan", "age", "ses" ))
+```
 
 
-                       
 ```
 
 * Convert SES (socio economic status) to a factor variables with levels in the 
