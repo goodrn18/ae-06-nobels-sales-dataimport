@@ -1,6 +1,6 @@
 ---
 title: "Nobel winners"
-author: "YOU"
+author: "Rachel Good"
 date: "`r Sys.Date()`"
 output: 
   html_document: 
@@ -10,24 +10,28 @@ output:
 
 ```{r load-packages, message=FALSE}
 library(tidyverse)
+library(readr)
+library(readxl)
 ```
 
 Let's first load the data:
 
-```{r label-me1, eval=FALSE}
-nobel <- ___(___)
+```{r label-me1, message=FALSE}
+nobel <- read_csv("data/nobel.csv") 
 ```
 
 Then let's split the data into two:
 
 ```{r label-me2, eval=FALSE}
 # stem laureates
-___ <- nobel %>%
+nobel_stem <- nobel %>%
   filter(___)
+```
 
-# non-steam laureates
-___ <- nobel %>%
-  filter(___)
+```{r nonstem, eval=TRUE}
+# non-stem laureates
+nobel_nonstem <- nobel %>%
+  filter()
 ```
 
 And finally write out the data:
