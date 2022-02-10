@@ -17,7 +17,7 @@ library(readxl)
 
 * Read in the Excel file called `favourite-food.xlsx` from the `data-raw/` folder.
 
-```{r label-me1, eval=FALSE}
+```{r import_data, eval=FALSE}
 fav_food <- read_excel("C:/Users/rgood28/documents/Data Sci Labs/ae-06-nobels-sales-dataimport/favourite-food.xlsx")
 fav_food
 ```
@@ -31,14 +31,18 @@ fave_food_cleaned_names <-
             col_names = c("student_id", "full_name", "favourite_food", "meal_plan", "age", "ses" ))
 ```
 
-
+```{r fix_age}
+fave_food_cleaned_names %>% 
+  mutate(age = case_when(
+    full_name == "Chidiegwu Dunkel" ~ 5,
+    TRUE ~ as.numeric(fave_food_cleaned_names)))
 ```
 
 * Convert SES (socio economic status) to a factor variables with levels in the 
 following order: `Low`, `Middle`, `High`.
 
-```{r label-me3}
-# add code here
+```{r convert_SES}
+
 ```
 
 * Write out the resulting data frame to `favourite-food.csv` in the `data/` folder.
