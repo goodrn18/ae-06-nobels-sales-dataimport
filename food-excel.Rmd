@@ -35,7 +35,7 @@ fave_food_cleaned_names <-
 fave_food_cleaned_names %>% 
   mutate(age = case_when(
     full_name == "Chidiegwu Dunkel" ~ 5,
-    TRUE ~ as.numeric(fave_food_cleaned_names)))
+    TRUE ~ as.double(age)))
 ```
 
 * Convert SES (socio economic status) to a factor variables with levels in the 
