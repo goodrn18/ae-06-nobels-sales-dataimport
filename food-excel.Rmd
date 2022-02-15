@@ -11,6 +11,8 @@ output:
 ```{r load-packages, message=FALSE}
 library(tidyverse)
 library(readxl)
+install.packages("xlsx")
+library(xlsx)
 ```
 
 ## Exercise 1
@@ -35,7 +37,10 @@ fave_food_cleaned_names <-
 fave_food_cleaned_names %>% 
   mutate(age = case_when(
     full_name == "Chidiegwu Dunkel" ~ 5,
-    TRUE ~ as.double(age)))
+    TRUE ~ as.double(age)),
+    ses=as.factor(ses))
+
+
 ```
 
 * Convert SES (socio economic status) to a factor variables with levels in the 
@@ -43,12 +48,14 @@ following order: `Low`, `Middle`, `High`.
 
 ```{r convert_SES}
 ses <- factor(c("Low", "Middle", "High"))
+typeof(ses)
+class(ses)
 ```
 
 * Write out the resulting data frame to `favourite-food.csv` in the `data/` folder.
 
-```{r label-me4}
-# add code here
+```{r write-out-df}
+write_csv(fave_food_cleaned_names, file = "C:/Users/rgood28/Documents/Data Sci Labs/ae-06-nobels-sales-dataimport/favourite-food.csv")
 ```
 
 * Finally, read `favourite-food.csv` back in from the `data/` folder and 
