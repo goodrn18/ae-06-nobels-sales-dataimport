@@ -11,7 +11,7 @@
 
 <meta name="author" content="Rachel Good" />
 
-<meta name="date" content="2022-02-08" />
+<meta name="date" content="2022-02-15" />
 
 <title>Favourite foods</title>
 
@@ -243,7 +243,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Favourite foods</h1>
 <h4 class="author">Rachel Good</h4>
-<h4 class="date">2022-02-08</h4>
+<h4 class="date">2022-02-15</h4>
 
 </div>
 
@@ -264,13 +264,24 @@ fav_food</code></pre>
  read_excel(&quot;C:/Users/rgood28/documents/Data Sci Labs/ae-06-nobels-sales-dataimport/favourite-food.xlsx&quot;,
                        na = c(&quot;NA&quot;, &quot;99999&quot;, &quot;N/A&quot;),
             col_names = c(&quot;student_id&quot;, &quot;full_name&quot;, &quot;favourite_food&quot;, &quot;meal_plan&quot;, &quot;age&quot;, &quot;ses&quot; ))</code></pre>
-<pre><code>
-* Convert SES (socio economic status) to a factor variables with levels in the 
-following order: `Low`, `Middle`, `High`.
-
-
-```r
-# add code here</code></pre>
+<pre class="r"><code>fave_food_cleaned_names %&gt;% 
+  mutate(age = case_when(
+    full_name == &quot;Chidiegwu Dunkel&quot; ~ 5,
+    TRUE ~ as.double(age)))</code></pre>
+<pre><code>## Warning in eval_tidy(pair$rhs, env = default_env): NAs introduced by coercion</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##   student_id full_name        favourite_food     meal_plan             age ses  
+##   &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;              &lt;chr&gt;               &lt;dbl&gt; &lt;chr&gt;
+## 1 Student ID Full Name        favourite.food     mealPlan               NA SES  
+## 2 1          Sunil Huffmann   Strawberry yoghurt Lunch only              4 High 
+## 3 2          Barclay Lynn     French fries       Lunch only              5 Midd~
+## 4 3          Jayendra Lyne    &lt;NA&gt;               Breakfast and lunch     7 Low  
+## 5 4          Leon Rossini     Anchovies          Lunch only             NA Midd~
+## 6 5          Chidiegwu Dunkel Pizza              Breakfast and lunch     5 High</code></pre>
+<ul>
+<li>Convert SES (socio economic status) to a factor variables with levels in the following order: <code>Low</code>, <code>Middle</code>, <code>High</code>.</li>
+</ul>
+<pre class="r"><code>ses &lt;- factor(c(&quot;Low&quot;, &quot;Middle&quot;, &quot;High&quot;))</code></pre>
 <ul>
 <li>Write out the resulting data frame to <code>favourite-food.csv</code> in the <code>data/</code> folder.</li>
 </ul>

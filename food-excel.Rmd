@@ -42,7 +42,7 @@ fave_food_cleaned_names %>%
 following order: `Low`, `Middle`, `High`.
 
 ```{r convert_SES}
-
+ses <- factor(c("Low", "Middle", "High"))
 ```
 
 * Write out the resulting data frame to `favourite-food.csv` in the `data/` folder.
